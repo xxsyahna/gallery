@@ -1,0 +1,219 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body dengan latar belakang retro dan palet warna hangat */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #f4f1e1; 
+    color: #3e3a36;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background-color: #5a4b3d; 
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Georgia', serif;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+button {
+    padding: 12px 18px;
+    background-color: #e6bc6e; 
+    border: 2px solid #5a4b3d;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: #cfa400; 
+    transform: scale(1.05);
+}
+
+/* Galeri utama */
+.gallery-container {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.gallery-item {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: scale(0.95);
+    border: 4px solid #d6c1a8; 
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) sepia(50%); 
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) sepia(0%); 
+}
+
+.gallery-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column; 
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px; 
+}
+
+/* Container tombol modal */
+.modal-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Styling Tombol Navigasi */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+/* Styling Tombol Download dan Fullscreen */
+.modal-controls button {
+    padding: 10px 15px;
+    background-color: #e6bc6e;
+    border: 2px solid #5a4b3d;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-controls button:hover {
+    background-color: #cfa400;
+    transform: scale(1.05);
+}
+
+/* Tutup Modal */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode header {
+    background-color: #333;
+}
+
+.dark-mode .gallery-item {
+    border-color: #666;
+}
+
+.dark-mode button {
+    background-color: #444;
+    color: #fff;
+    border-color: #fff;
+}
+
+.dark-mode button:hover {
+    background-color: #777;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .favorite-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-gallery {
+        grid-template-columns: 1fr;
+    }
+} 

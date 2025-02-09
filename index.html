@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <h1>Virtual Gallery</h1>
+        <button id="theme-toggle" aria-label="Pilih tema gelap atau terang">🌙 Dark Mode</button>
+        <button id="music-toggle" aria-label="Nyalakan atau hentikan musik">🔊 Play Music</button>
+    </header>
+
+  <audio id="background-music" loop>
+    <source src="assets/background-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="click-sound">
+    <source src="assets/click-sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="gallery-container">
+    <div class="gallery">
+      <img src="assets/image1.jpg" class="gallery-item lazy-load">
+      <img src="assets/image2.jpg" class="gallery-item lazy-load">
+      <img src="assets/image3.jpg" class="gallery-item lazy-load">
+      <img src="assets/image4.jpg" class="gallery-item lazy-load">
+      <img src="assets/image5.jpg" class="gallery-item lazy-load">
+      <img src="assets/image6.jpg" class="gallery-item lazy-load">
+    </div>
+  </main>  
+
+  <!-- Modal untuk menampilkan gambar dalam ukuran besar -->
+  <div class="modal">
+    <span class="close" aria-label="Tutup modal">&times;</span>
+    <img class="modal-content" id="modal-image" alt="Gambar modal">
+    <div class="caption"></div>
+    
+    <!-- Tombol navigasi -->
+    <button id="prev" class="nav-btn" aria-label="Gambar sebelumnya">❮</button>
+    <button id="next" class="nav-btn" aria-label="Gambar berikutnya">❯</button>
+  
+    <!-- Tombol download dan fullscreen-->
+    <div class="modal-controls">
+      <button id="download-btn" aria-label="Download gambar">⬇ Download</button>
+      <button id="fullscreen-btn" aria-label="Lihat gambar dalam mode fullscreen">⛶ Fullscreen</button>
+    </div>
+  </div>  
+
+  <script src="main.js"></script>
+</body>
+</html>
